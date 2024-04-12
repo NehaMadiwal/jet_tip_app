@@ -3,6 +3,7 @@ package com.nehamadiwal.jettipapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -50,35 +52,51 @@ fun MyApp(content: @Composable () -> Unit) {
 @Preview
 @Composable
 fun TopHeader(totalPerPerson: Double = 134.0) {
-    Surface(modifier = Modifier
-        .fillMaxWidth()
-        .height(150.dp)
-        .clip(shape = CircleShape.copy(all = CornerSize(12.dp))),
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp)
+            .clip(shape = CircleShape.copy(all = CornerSize(12.dp))),
         //.clip(shape = RoundedCornerShape(corner = CornerSize(12.dp))),
         color = Color(0xFFF7D7E9)
 
     ) {
 
-        Column(modifier = Modifier.padding(12.dp),
+        Column(
+            modifier = Modifier.padding(12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
+            verticalArrangement = Arrangement.Center
+        ) {
             val total = "%.2f".format(totalPerPerson)
-            Text(text = "Total per person",
+            Text(
+                text = "Total per person",
                 style = MaterialTheme.typography.headlineSmall
             )
-            Text(text = "$$total",
+            Text(
+                text = "$$total",
                 style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.ExtraBold)
+                fontWeight = FontWeight.ExtraBold
+            )
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun GreetingPreview() {
-    JetTipAppTheme {
-        MyApp {
+fun MainContent() {
+    Surface(
+        modifier = Modifier
+            .padding(2.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(corner = CornerSize(8.dp)),
+        border = BorderStroke(width = 1.dp, color = Color.LightGray)
+    ) {
+        Column() {
+            Text(text = "Hello")
+            Text(text = "Hello")
+            Text(text = "Hello")
             Text(text = "Hello")
         }
     }
 }
+
