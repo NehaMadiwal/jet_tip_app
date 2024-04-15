@@ -181,6 +181,15 @@ fun BillForm(
                     if (!validState) return@KeyboardActions
                     onValChange(totalBillState.value.trim())
                     keyBoardController?.hide()
+                    tipAmountState.value = calculateTotalTip(
+                        totalBill = totalBillState.value.toDouble(),
+                        tipPercentage = sliderPositionState.value.toInt()
+                    )
+                    totalPerPersonState.value = calculateTotalPerPerson(
+                        totalBill = totalBillState.value.toDouble(),
+                        splitBy = splitByState.value,
+                        tipPercentage = sliderPositionState.value.toInt()
+                    )
                 }
             )
 
