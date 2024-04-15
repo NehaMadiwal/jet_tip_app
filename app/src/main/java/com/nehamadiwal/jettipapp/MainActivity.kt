@@ -184,19 +184,21 @@ fun BillForm(
                 }
             )
 
-            if (validState) {
+            if (true) {
                 Row(
-                    modifier = modifier.padding(3.dp),
+                    modifier = modifier.padding(start = 12.dp),
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Text(
                         text = "Split",
-                        modifier = Modifier.align(
-                            alignment = Alignment.CenterVertically
-                        )
+                        modifier = Modifier
+                            .align(
+                                alignment = Alignment.CenterVertically
+                            )
+                            .width(40.dp)
                     )
 
-                    Spacer(modifier = Modifier.width(120.dp))
+                    Spacer(modifier = Modifier.width(64.dp))
 
                     Row(
                         modifier = Modifier.padding(horizontal = 3.dp),
@@ -242,19 +244,21 @@ fun BillForm(
                 }
                 //Tip row
                 Row(
-                    modifier = modifier.padding(
-                        horizontal = 3.dp,
-                        vertical = 12.dp
-                    )
+                    modifier = modifier.padding(12.dp)
                 ) {
                     Text(
                         text = "Tip",
-                        modifier = Modifier.align(alignment = Alignment.CenterVertically)
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterVertically)
+                            .width(40.dp)
                     )
-                    Spacer(modifier = Modifier.width(200.dp))
+                    Spacer(modifier = Modifier.width(64.dp))
                     Text(
                         text = "$ ${tipAmountState.value}",
-                        modifier = Modifier.align(alignment = Alignment.CenterVertically)
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterVertically)
+                            .padding(3.dp)
+                            .padding(start = 8.dp)
                     )
                 }
 
@@ -264,8 +268,10 @@ fun BillForm(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
-                    Text(text = "${sliderPositionState.value.toInt()}%")
-                    Spacer(modifier = Modifier.height(14.dp))
+                    Text(
+                        text = "${sliderPositionState.value.toInt()}%",
+                        style = MaterialTheme.typography.titleMedium
+                    )
                     //Slider
                     Slider(
                         value = sliderPositionState.value,
