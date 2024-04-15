@@ -184,7 +184,7 @@ fun BillForm(
                 }
             )
 
-            if (true) {
+            if (validState) {
                 Row(
                     modifier = modifier.padding(start = 12.dp),
                     horizontalArrangement = Arrangement.Start
