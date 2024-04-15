@@ -80,6 +80,6 @@ captures/
 *.user
 *.sln.docstates
 
-# OS-specific files
+# OS-specific fi
 .DS_Store
 Thumbs.db
